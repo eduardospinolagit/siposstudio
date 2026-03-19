@@ -1,0 +1,23 @@
+{
+  "name": "siposstudio",
+  "version": "1.0.0",
+  "description": "Sipos Studio - Design and Development Agency",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'",
+    "lint": "echo 'No linter configured for static HTML'"
+  },
+  "keywords": [
+    "design",
+    "studio",
+    "agency"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
