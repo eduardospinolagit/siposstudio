@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sipos Studio — Sites, Automações, Tráfego e Muito Mais</title>
+<meta name="description" content="Você pensa o que é melhor para o seu negócio e a gente cria. Sites, automações com IA, tráfego pago, e-commerce, apps e CRM."/>
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="apple-touch-icon" href="favicon.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--g:#22c55e;--g2:#16a34a;--bg:#0a0a0a;--card:#111;--card2:#141414;--brd:rgba(255,255,255,.08);--lt:#f0f0f0;--gr:#666;--gr2:#888}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--lt);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.fade-up.visible{opacity:1;transform:none}
+.fade-scale{opacity:0;transform:scale(.97);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.fade-scale.visible{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:200;padding:18px 0;transition:background .4s,border-color .4s}
+header.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--brd)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo-img{height:38px;width:auto}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:.85rem;color:var(--gr2);font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--lt)}
+.btn-nav{padding:9px 20px;border-radius:8px;background:var(--g);color:#fff;font-size:.83rem;font-weight:600;font-family:'Inter',sans-serif;border:none;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap}
+.btn-nav:hover{background:var(--g2);transform:translateY(-1px)}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none}
+.orb1{width:600px;height:600px;top:-10%;right:-8%;background:radial-gradient(circle,rgba(34,197,94,.07) 0%,transparent 70%);filter:blur(80px);animation:orbF1 14s ease-in-out infinite}
+.orb2{width:500px;height:500px;bottom:0;left:-10%;background:radial-gradient(circle,rgba(34,197,94,.05) 0%,transparent 70%);filter:blur(70px);animation:orbF2 17s ease-in-out infinite}
+.orb3{width:700px;height:700px;top:30%;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(255,255,255,.015) 0%,transparent 70%);filter:blur(100px);animation:orbP 11s ease-in-out infinite}
+@keyframes orbF1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-30px,20px) scale(1.05)}66%{transform:translate(20px,-15px) scale(.95)}}
+@keyframes orbF2{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(25px,-20px) scale(1.08)}66%{transform:translate(-15px,25px) scale(.92)}}
+@keyframes orbP{0%,100%{transform:translateX(-50%) scale(1);opacity:1}50%{transform:translateX(-50%) scale(1.15);opacity:.5}}
+.hero-content{position:relative;z-index:1;max-width:860px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;font-size:.78rem;color:#a1a1a1;border:1px solid rgba(255,255,255,.1);margin-bottom:36px}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--g);animation:blink 2.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+h1.hero-title{font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:800;line-height:1.15;letter-spacing:-.03em;margin-bottom:10px;max-width:700px}
+.hero-slogan{font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:800;line-height:1.15;letter-spacing:-.03em;color:var(--g);margin-bottom:24px}
+.hero-rotating{display:block;font-size:clamp(.85rem,1.6vw,1rem);color:#555;font-weight:400;min-height:1.6em;margin-bottom:22px;letter-spacing:.01em}
+.rotating-word{color:var(--g);font-weight:500;transition:opacity .3s,transform .3s;display:inline-block}
+.rotating-word.out{opacity:0;transform:translateY(10px)}
+.hero-sub{font-size:.95rem;color:#777;line-height:1.8;max-width:500px;margin:0 auto 40px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-size:.9rem;font-weight:600;font-family:'Inter',sans-serif;background:var(--g);color:#fff;border:none;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}
+.btn-primary:hover{background:var(--g2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(34,197,94,.25)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-size:.9rem;font-weight:500;font-family:'Inter',sans-serif;background:transparent;color:var(--lt);border:1px solid var(--brd);cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.btn-outline:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
+
+/* STATS */
+#stats{border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);background:var(--card)}
+.stats-inner{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap}
+.stat-item{text-align:center;padding:36px 44px;border-right:1px solid var(--brd);flex:1;min-width:150px}
+.stat-item:last-child{border-right:none}
+.stat-num{font-size:2.4rem;font-weight:800;color:var(--g);line-height:1;margin-bottom:6px;letter-spacing:-.03em}
+.stat-lbl{font-size:.78rem;color:var(--gr);font-weight:400}
+@media(max-width:640px){.stat-item{min-width:50%;border-right:none;border-bottom:1px solid var(--brd);padding:24px 16px}.stat-item:nth-child(odd){border-right:1px solid var(--brd)}.stat-item:last-child{border-bottom:none;border-right:none;width:100%}}
+
+/* CAROUSEL */
+#brands{padding:60px 0;overflow:hidden}
+.brands-label{text-align:center;font-size:.72rem;color:#3a3a3a;text-transform:uppercase;letter-spacing:.14em;margin-bottom:32px;font-weight:500}
+.carousel-wrap{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,black 12%,black 88%,transparent);mask:linear-gradient(90deg,transparent,black 12%,black 88%,transparent)}
+.carousel-track{display:flex;align-items:center;width:max-content;animation:cScroll 30s linear infinite}
+.carousel-track:hover{animation-play-state:paused}
+@keyframes cScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.brand-pill{display:flex;align-items:center;padding:0 40px;height:64px;border-right:1px solid rgba(255,255,255,.05);white-space:nowrap}
+.brand-pill span{font-size:.88rem;font-weight:600;color:#242424;letter-spacing:.02em}
+
+/* SECTION COMMON */
+section{padding:90px 0}
+.sec-eyebrow{display:block;text-align:center;font-size:.7rem;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:.14em;margin-bottom:14px}
+h2.sec-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.03em;text-align:center;margin-bottom:14px;line-height:1.15}
+.sec-sub{font-size:.97rem;color:#777;text-align:center;max-width:500px;margin:0 auto 56px;line-height:1.75}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--brd);border:1px solid var(--brd);border-radius:16px;overflow:hidden}
+@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.services-grid{grid-template-columns:1fr}}
+.srv-card{background:var(--card);padding:36px 30px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:background .3s}
+.srv-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 0% 0%,rgba(34,197,94,.05),transparent 55%);opacity:0;transition:opacity .4s}
+.srv-card:hover{background:var(--card2)}
+.srv-card:hover::after{opacity:1}
+.srv-ico{width:44px;height:44px;border-radius:10px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0}
+.srv-ico svg{width:20px;height:20px;stroke:var(--g);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.srv-card h3{font-size:1.02rem;font-weight:700;margin-bottom:10px}
+.srv-card p{font-size:.855rem;color:#666;line-height:1.7;flex:1;margin-bottom:20px}
+.srv-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.srv-price{font-size:.72rem;font-weight:600;color:var(--g);background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);padding:3px 10px;border-radius:999px}
+.srv-more{font-size:.75rem;color:#444;font-weight:500;transition:color .2s;cursor:pointer;border:none;background:none;font-family:'Inter',sans-serif;padding:0}
+.srv-more:hover{color:var(--gr2)}
+/* MODAL SERVIÇOS */
+.sm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:850;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.sm-overlay.open{opacity:1;pointer-events:all}
+.sm-box{background:var(--card);border:1px solid var(--brd);border-radius:20px;padding:36px;max-width:540px;width:100%;position:relative;transform:translateY(20px) scale(.97);transition:transform .35s cubic-bezier(.22,1,.36,1);max-height:90vh;overflow-y:auto}
+.sm-overlay.open .sm-box{transform:none}
+.sm-close{position:absolute;top:13px;right:15px;background:transparent;border:none;color:var(--gr);cursor:pointer;font-size:1.1rem;padding:4px;transition:color .2s;font-family:'Inter',sans-serif}
+.sm-close:hover{color:var(--lt)}
+.sm-ico{width:48px;height:48px;border-radius:12px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.sm-ico svg{width:22px;height:22px;stroke:var(--g);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sm-box h3{font-size:1.3rem;font-weight:800;margin-bottom:8px;letter-spacing:-.02em}
+.sm-price{font-size:.78rem;font-weight:600;color:var(--g);background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:16px}
+.sm-box p{font-size:.9rem;color:#707070;line-height:1.8;margin-bottom:12px}
+.sm-list{display:flex;flex-direction:column;gap:8px;margin:16px 0 22px}
+.sm-item{display:flex;align-items:flex-start;gap:9px;font-size:.86rem;color:#888}
+.sm-item::before{content:'✓';color:var(--g);font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* PROCESS */
+#processo{background:var(--card);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd)}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.steps-line{position:absolute;top:27px;left:calc(12.5% + 4px);right:calc(12.5% + 4px);height:1px;background:linear-gradient(90deg,transparent,rgba(34,197,94,.3) 20%,rgba(34,197,94,.3) 80%,transparent)}
+@media(max-width:768px){.steps-grid{grid-template-columns:1fr 1fr;gap:32px}.steps-line{display:none}}
+@media(max-width:480px){.steps-grid{grid-template-columns:1fr}}
+.step{text-align:center;padding:0 16px}
+.step-n{width:54px;height:54px;border-radius:50%;background:var(--bg);border:1px solid rgba(34,197,94,.25);color:var(--g);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:.95rem;font-weight:700;position:relative;z-index:1;transition:background .3s,border-color .3s}
+.step:hover .step-n{background:rgba(34,197,94,.08);border-color:var(--g)}
+.step h3{font-size:.95rem;font-weight:700;margin-bottom:8px}
+.step p{font-size:.835rem;color:#606060;line-height:1.65}
+
+/* PORTFOLIO */
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.p-card{border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--brd);transition:transform .45s cubic-bezier(.34,1.56,.64,1),border-color .3s,box-shadow .3s}
+.p-card:hover{transform:translateY(-7px);border-color:rgba(34,197,94,.3);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.p-thumb{aspect-ratio:16/9;overflow:hidden;background:#0d0d0d}
+.p-img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s}
+.p-thumb:hover .p-img{transform:scale(1.03)}
+.p-placeholder{aspect-ratio:16/9;background:linear-gradient(135deg,#111,#0d0d0d);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-bottom:1px solid var(--brd)}
+.p-placeholder span{font-size:.78rem;color:#2a2a2a;font-weight:500}
+.p-info{padding:22px}
+.p-info h3{font-size:.97rem;font-weight:700;margin-bottom:6px}
+.p-info p{font-size:.835rem;color:#606060;line-height:1.6;margin-bottom:14px}
+.p-link{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:600;color:var(--g);transition:gap .2s}
+.p-link:hover{gap:9px}
+
+/* TESTIMONIALS */
+#depoimentos{background:var(--card);border-top:1px solid var(--brd)}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.t-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.t-grid{grid-template-columns:1fr}}
+.t-card{background:var(--bg);border:1px solid var(--brd);border-radius:14px;padding:30px;position:relative;transition:transform .45s cubic-bezier(.34,1.56,.64,1),border-color .3s,box-shadow .3s;display:none}
+.t-card.visible{display:block}
+.t-card:hover{transform:translateY(-6px);border-color:rgba(34,197,94,.25);box-shadow:0 12px 36px rgba(34,197,94,.07),0 4px 12px rgba(0,0,0,.2)}
+.quote-mark{position:absolute;top:20px;right:24px;font-size:3.5rem;font-weight:700;color:var(--g);opacity:.2;line-height:1}
+.t-stars{display:flex;gap:3px;margin-bottom:14px}
+.t-stars svg{width:13px;height:13px;fill:#f59e0b}
+.t-text{font-size:.9rem;color:#777;line-height:1.75;margin-bottom:22px}
+.t-author{display:flex;align-items:center;gap:11px}
+.t-av{width:42px;height:42px;border-radius:50%;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.2);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;color:var(--g);flex-shrink:0}
+.t-name{font-size:.9rem;font-weight:600}
+.t-role{font-size:.75rem;color:var(--gr)}
+.t-nav{display:flex;align-items:center;gap:12px;justify-content:center;margin-top:36px}
+.t-btn{width:40px;height:40px;border-radius:50%;background:var(--bg);border:1px solid var(--brd);color:var(--gr2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0}
+.t-btn:hover{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.3);color:var(--g)}
+.t-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.t-dots{display:flex;gap:6px}
+.t-dot{width:6px;height:6px;border-radius:50%;background:var(--brd);transition:all .2s;cursor:pointer}
+.t-dot.on{background:var(--g);width:18px;border-radius:3px}
+
+/* ABOUT */
+#sobre{border-top:1px solid var(--brd)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:40px}}
+.eyebrow-l{font-size:.7rem;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:.14em;margin-bottom:14px;display:block}
+.about-text h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-.03em;margin-bottom:20px;line-height:1.2}
+.about-text h2 span{color:var(--g)}
+.about-text p{font-size:.92rem;color:#707070;line-height:1.8;margin-bottom:14px}
+.about-side{display:flex;flex-direction:column}
+.a-feat{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.a-feat:last-child{border-bottom:none}
+.a-ico{width:38px;height:38px;border-radius:9px;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.a-ico svg{width:16px;height:16px;stroke:var(--g);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.a-feat strong{display:block;font-size:.9rem;font-weight:600;margin-bottom:3px}
+.a-feat span{font-size:.8rem;color:var(--gr)}
+
+/* SELOS */
+#selos{padding:72px 0;background:var(--card);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd)}
+.seals-wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px}
+.seal{display:flex;align-items:center;gap:10px;padding:13px 20px;background:var(--bg);border:1px solid var(--brd);border-radius:10px;transition:border-color .3s,transform .2s;cursor:default}
+.seal:hover{border-color:rgba(34,197,94,.3);transform:translateY(-2px)}
+.s-ico{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.s-ico svg{width:18px;height:18px}
+.s-txt strong{display:block;font-size:.8rem;font-weight:700;line-height:1.2}
+.s-txt span{font-size:.68rem;color:var(--gr)}
+
+/* BLOG */
+#blog{border-top:1px solid var(--brd)}
+.blog-admin-bar{display:flex;justify-content:center;margin-bottom:36px}
+.btn-admin{padding:8px 18px;border-radius:8px;background:transparent;border:1px solid var(--brd);color:var(--gr2);font-size:.78rem;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.btn-admin:hover{border-color:rgba(34,197,94,.3);color:var(--g);background:rgba(34,197,94,.05)}
+.blog-form{background:var(--card);border:1px solid var(--brd);border-radius:14px;padding:28px;margin-bottom:36px;display:none}
+.blog-form.open{display:block}
+.bf-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+@media(max-width:640px){.bf-grid{grid-template-columns:1fr}}
+.bf-f{display:flex;flex-direction:column;gap:5px}
+.bf-f.full{grid-column:1/-1}
+.bf-f label{font-size:.76rem;color:var(--gr2);font-weight:500}
+.bf-f input,.bf-f select,.bf-f textarea{background:#0d0d0d;border:1px solid var(--brd);border-radius:7px;color:var(--lt);font-family:'Inter',sans-serif;font-size:.87rem;padding:9px 13px;outline:none;transition:border-color .2s;resize:vertical}
+.bf-f input:focus,.bf-f select:focus,.bf-f textarea:focus{border-color:rgba(34,197,94,.4)}
+.bf-acts{display:flex;gap:10px;justify-content:flex-end;margin-top:4px}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.b-card{background:var(--card);border:1px solid var(--brd);border-radius:14px;overflow:hidden;transition:transform .4s cubic-bezier(.34,1.56,.64,1),border-color .3s}
+.b-card:hover{transform:translateY(-6px);border-color:rgba(34,197,94,.25)}
+.b-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#111,#0e0e0e);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.b-cat{position:absolute;top:12px;left:12px;font-size:.68rem;font-weight:700;color:var(--g);background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);padding:3px 9px;border-radius:999px;text-transform:uppercase;letter-spacing:.08em}
+.b-thumb svg{opacity:.05}
+.b-body{padding:20px}
+.b-date{font-size:.72rem;color:var(--gr);margin-bottom:7px}
+.b-body h3{font-size:.95rem;font-weight:700;margin-bottom:7px;line-height:1.4}
+.b-body p{font-size:.83rem;color:#626262;line-height:1.65;margin-bottom:12px}
+.b-link{font-size:.78rem;color:var(--g);font-weight:600;display:inline-flex;align-items:center;gap:5px;transition:gap .2s;cursor:pointer;background:none;border:none;font-family:'Inter',sans-serif;padding:0}
+.b-link:hover{gap:9px}
+
+/* CTA */
+#cta{padding:100px 0;text-align:center;background:var(--card);border-top:1px solid var(--brd);position:relative;overflow:hidden}
+#cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 100%,rgba(34,197,94,.07),transparent);pointer-events:none}
+.cta-title{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;letter-spacing:-.035em;margin-bottom:18px;position:relative;z-index:1}
+.cta-title span{color:var(--g)}
+.cta-sub{font-size:.97rem;color:#707070;max-width:460px;margin:0 auto 36px;line-height:1.75;position:relative;z-index:1}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+
+/* FOOTER */
+footer{padding:44px 0;border-top:1px solid var(--brd)}
+.footer-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
+@media(max-width:768px){.footer-inner{grid-template-columns:1fr;text-align:center;gap:18px}}
+.footer-logo{height:30px;width:auto}
+@media(max-width:768px){.footer-logo{margin:0 auto}}
+footer p{font-size:.78rem;color:#333}
+.social-links{display:flex;align-items:center;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+@media(max-width:768px){.social-links{justify-content:center}}
+.social-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:7px;border:1px solid var(--brd);color:var(--gr);font-size:.76rem;font-weight:500;transition:all .2s;white-space:nowrap}
+.social-btn:hover{border-color:rgba(34,197,94,.3);color:var(--g);background:rgba(34,197,94,.04)}
+.social-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* WA */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:99;width:54px;height:54px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform .3s,box-shadow .3s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:26px;height:26px;fill:#fff}
+
+/* POPUP */
+.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:900;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.popup-overlay.open{opacity:1;pointer-events:all}
+.popup-box{background:var(--card);border:1px solid var(--brd);border-radius:20px;padding:36px;max-width:460px;width:100%;position:relative;transform:translateY(20px) scale(.97);transition:transform .35s cubic-bezier(.22,1,.36,1);text-align:center}
+.popup-overlay.open .popup-box{transform:none}
+.popup-close{position:absolute;top:13px;right:15px;background:transparent;border:none;color:var(--gr);cursor:pointer;font-size:1.1rem;padding:4px;transition:color .2s}
+.popup-close:hover{color:var(--lt)}
+.popup-ico{width:60px;height:60px;border-radius:14px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.popup-ico svg{width:26px;height:26px;stroke:var(--g);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.popup-box h3{font-size:1.3rem;font-weight:800;margin-bottom:9px;letter-spacing:-.02em}
+.popup-box h3 span{color:var(--g)}
+.popup-box p{font-size:.88rem;color:#777;line-height:1.7;margin-bottom:20px}
+.popup-list{display:flex;flex-direction:column;gap:7px;margin-bottom:24px;text-align:left}
+.popup-item{display:flex;align-items:center;gap:9px;font-size:.84rem;color:#888}
+.p-check{width:18px;height:18px;border-radius:50%;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.58rem;color:var(--g);font-weight:700}
+
+/* SRV MODAL */
+.sm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:850;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.sm-overlay.open{opacity:1;pointer-events:all}
+.sm-box{background:var(--card);border:1px solid var(--brd);border-radius:20px;padding:36px;max-width:540px;width:100%;position:relative;transform:translateY(20px) scale(.97);transition:transform .35s cubic-bezier(.22,1,.36,1);max-height:90vh;overflow-y:auto}
+.sm-overlay.open .sm-box{transform:none}
+.sm-close{position:absolute;top:13px;right:15px;background:transparent;border:none;color:var(--gr);cursor:pointer;font-size:1.1rem;padding:4px;transition:color .2s}
+.sm-close:hover{color:var(--lt)}
+.sm-ico{width:48px;height:48px;border-radius:12px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.sm-ico svg{width:22px;height:22px;stroke:var(--g);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sm-price{font-size:.78rem;font-weight:600;color:var(--g);background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:16px}
+.sm-box p{font-size:.9rem;color:#707070;line-height:1.8;margin-bottom:12px}
+.sm-list{display:flex;flex-direction:column;gap:8px;margin:16px 0 22px}
+.sm-item{display:flex;align-items:flex-start;gap:9px;font-size:.86rem;color:#888}
+.sm-item::before{content:'✓';color:var(--g);font-weight:700;flex-shrink:0;margin-top:1px}
+
+@media(max-width:640px){
+  section{padding:60px 0}
+  #hero{padding:100px 20px 60px}
+  .hero-ctas{flex-direction:column;width:100%;max-width:300px;gap:10px}
+  .btn-primary,.btn-outline{justify-content:center;width:100%;padding:13px 20px}
+  .portfolio-grid{grid-template-columns:1fr}
+  .cta-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="container header-inner">
+    <a href="#"><img class="logo-img" src="logo.png" alt="Sipos Studio"/></a>
+    <nav class="nav-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#blog">Blog</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+    <a href="https://wa.me/5547989201634?text=Olá! Vim pelo site e quero uma análise gratuita do meu negócio." target="_blank" class="btn-nav">Análise gratuita</a>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+  <div class="hero-content">
+    <div class="hero-badge fade-up"><span class="badge-dot"></span>Atendendo empresas em todo o Brasil</div>
+    <h1 class="hero-title fade-up d1">Você pensa no negócio.<br>A gente cuida do digital.</h1>
+    <p class="hero-rotating fade-up d2">Sites · <span class="rotating-word" id="rw">automações</span> · tráfego · e-commerce · apps</p>
+    <p class="hero-sub fade-up d3">Presença online profissional, automações com IA e anúncios que trazem clientes — tudo para o seu negócio crescer.</p>
+    <div class="hero-ctas fade-up d4">
+      <a href="https://wa.me/5547989201634?text=Olá! Quero uma prévia gratuita para meu negócio." target="_blank" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero uma prévia gratuita
+      </a>
+      <button onclick="openPopup()" class="btn-outline">Análise gratuita <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<section id="stats">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item fade-up"><div class="stat-num">+60</div><div class="stat-lbl">Projetos entregues</div></div>
+      <div class="stat-item fade-up d1"><div class="stat-num">99%</div><div class="stat-lbl">Clientes satisfeitos</div></div>
+      <div class="stat-item fade-up d2"><div class="stat-num">4+</div><div class="stat-lbl">Anos de mercado</div></div>
+      <div class="stat-item fade-up d3"><div class="stat-num">+50</div><div class="stat-lbl">Empresas transformadas</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="brands" style="padding:60px 0">
+  <p class="brands-label fade-up">Empresas que confiam na Sipos Studio</p>
+  <div class="carousel-wrap">
+    <div class="carousel-track">
+      <div class="brand-pill"><span>Iron House Academia</span></div>
+      <div class="brand-pill"><span>Socila</span></div>
+      <div class="brand-pill"><span>CNSMC</span></div>
+      <div class="brand-pill"><span>Sousa Guedes</span></div>
+      <div class="brand-pill"><span>Brinkel</span></div>
+      <div class="brand-pill"><span>RR Fitness</span></div>
+      <div class="brand-pill"><span>Studio Bella</span></div>
+      <div class="brand-pill"><span>Auto Center Silva</span></div>
+      <div class="brand-pill"><span>Café Aroma</span></div>
+      <div class="brand-pill"><span>MetalPrecisa</span></div>
+      <div class="brand-pill"><span>Iron House Academia</span></div>
+      <div class="brand-pill"><span>Socila</span></div>
+      <div class="brand-pill"><span>CNSMC</span></div>
+      <div class="brand-pill"><span>Sousa Guedes</span></div>
+      <div class="brand-pill"><span>Brinkel</span></div>
+      <div class="brand-pill"><span>RR Fitness</span></div>
+      <div class="brand-pill"><span>Studio Bella</span></div>
+      <div class="brand-pill"><span>Auto Center Silva</span></div>
+      <div class="brand-pill"><span>Café Aroma</span></div>
+      <div class="brand-pill"><span>MetalPrecisa</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="container">
+    <span class="sec-eyebrow fade-up">O que fazemos</span>
+    <h2 class="sec-title fade-up">Soluções digitais completas</h2>
+    <p class="sec-sub fade-up">Não somos só uma empresa de sites. Construímos a presença digital e a estrutura tecnológica do seu negócio.</p>
+    <div class="services-grid">
+      <div class="srv-card fade-scale">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Sites Profissionais</h3>
+        <p>Site rápido, moderno e que aparece no Google. Apresentação profissional, WhatsApp, formulário e mapa. Do zero ao ar em 7 dias.</p>
+        <div class="srv-footer"><span class="srv-price">A partir de R$797</span><button class="srv-more" onclick="openSM('site')">Saiba mais →</button></div>
+      </div>
+      <div class="srv-card fade-scale d1">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M20 2v4m0 0h-4m4 0-3-3"/></svg></div>
+        <h3>Automações com IA</h3>
+        <p>Atendimento automático no WhatsApp, respostas inteligentes, agendamento e follow-up. Seu negócio funcionando 24h sem você precisar fazer nada.</p>
+        <div class="srv-footer"><span class="srv-price">A partir de R$497</span><button class="srv-more" onclick="openSM('auto')">Saiba mais →</button></div>
+      </div>
+      <div class="srv-card fade-scale d2">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3>Gestão de Tráfego Pago</h3>
+        <p>Anúncios no Google e Instagram para trazer clientes qualificados. Configuração, gestão mensal e relatório de resultados.</p>
+        <div class="srv-footer"><span class="srv-price">A partir de R$597/mês</span><button class="srv-more" onclick="openSM('trafego')">Saiba mais →</button></div>
+      </div>
+      <div class="srv-card fade-scale d1">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <h3>E-commerce</h3>
+        <p>Loja virtual completa para vender seus produtos online. Pagamento integrado, carrinho, gestão de estoque e painel administrativo.</p>
+        <div class="srv-footer"><span class="srv-price">A partir de R$1.497</span><button class="srv-more" onclick="openSM('ecom')">Saiba mais →</button></div>
+      </div>
+      <div class="srv-card fade-scale d2">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3>Softwares e Aplicativos</h3>
+        <p>Sistemas e apps personalizados para a operação do seu negócio. Controle interno, automação de processos e dashboards sob medida.</p>
+        <div class="srv-footer"><span class="srv-price">Sob consulta</span><button class="srv-more" onclick="openSM('soft')">Saiba mais →</button></div>
+      </div>
+      <div class="srv-card fade-scale d3">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>CRM Personalizado</h3>
+        <p>Sistema de gestão de clientes feito para o seu negócio. Controle leads, follow-ups, vendas e receita em um painel simples e eficiente.</p>
+        <div class="srv-footer"><span class="srv-price">Sob consulta</span><button class="srv-more" onclick="openSM('crm')">Saiba mais →</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="processo">
+  <div class="container">
+    <span class="sec-eyebrow fade-up">Simples assim</span>
+    <h2 class="sec-title fade-up">Do contato ao resultado</h2>
+    <p class="sec-sub fade-up">Processo limpo e direto. Você cuida do seu negócio enquanto a gente cuida do digital.</p>
+    <div class="steps-grid">
+      <div class="steps-line"></div>
+      <div class="step fade-up"><div class="step-n">01</div><h3>Prévia gratuita</h3><p>Você manda o contato. A gente cria uma prévia do que será entregue, sem cobrar nada.</p></div>
+      <div class="step fade-up d1"><div class="step-n">02</div><h3>Você aprova</h3><p>Ajusta qualquer detalhe até estar exatamente como você imaginou.</p></div>
+      <div class="step fade-up d2"><div class="step-n">03</div><h3>A gente entrega</h3><p>Desenvolvemos, testamos e entregamos. Rápido, sem surpresas e no prazo combinado.</p></div>
+      <div class="step fade-up d3"><div class="step-n">04</div><h3>Seu negócio cresce</h3><p>Mais visibilidade, mais clientes, mais receita. E a gente continua do seu lado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <span class="sec-eyebrow fade-up">Portfólio</span>
+    <h2 class="sec-title fade-up">Projetos que entregamos</h2>
+    <p class="sec-sub fade-up">Cada projeto é construído do zero, pensado para o negócio do cliente.</p>
+    <div class="portfolio-grid">
+      <div class="p-card fade-scale">
+        <a href="https://ironhouseacademia.netlify.app/" target="_blank">
+          <div class="p-thumb"><img src="case-ironhouse.png" alt="Iron House Academia" class="p-img"/></div>
+        </a>
+        <div class="p-info"><h3>Iron House Academia</h3><p>Site completo com planos, modalidades, perfil do treinador e localização. Design inspirado nas grandes redes.</p><a href="https://ironhouseacademia.netlify.app/" target="_blank" class="p-link">Ver ao vivo →</a></div>
+      </div>
+      <div class="p-card fade-scale d1">
+        <div class="p-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Em desenvolvimento</span></div>
+        <div class="p-info"><h3>Salão de Beleza</h3><p>Galeria de trabalhos, serviços, preços e agendamento via WhatsApp.</p></div>
+      </div>
+      <div class="p-card fade-scale d2">
+        <div class="p-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Em desenvolvimento</span></div>
+        <div class="p-info"><h3>Clínica Odontológica</h3><p>Especialidades, equipe e formulário de agendamento com confirmação automática.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="depoimentos">
+  <div class="container">
+    <span class="sec-eyebrow fade-up">Depoimentos</span>
+    <h2 class="sec-title fade-up">O que nossos clientes dizem</h2>
+    <p class="sec-sub fade-up">Resultados reais de negócios que decidiram crescer no digital.</p>
+    <div class="t-grid fade-up" id="tgrid">
+      <div class="t-card"><span class="quote-mark">&ldquo;</span><div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="t-text">Antes ninguém me achava no Google. Depois do site novo comecei a receber clientes que nem me conheciam. Valeu cada centavo.</p><div class="t-author"><div class="t-av">MC</div><div><div class="t-name">Maria Clara</div><div class="t-role">Café Aroma</div></div></div></div>
+      <div class="t-card"><span class="quote-mark">&ldquo;</span><div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="t-text">Sempre achei que site era coisa cara e complicada. O Eduardo fez tudo em 7 dias e eu não precisei fazer quase nada. Superou minhas expectativas.</p><div class="t-author"><div class="t-av">RL</div><div><div class="t-name">Roberto Lima</div><div class="t-role">Auto Center Silva</div></div></div></div>
+      <div class="t-card"><span class="quote-mark">&ldquo;</span><div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="t-text">Minhas clientes chegam comentando que acharam o salão pelo Google. Isso não acontecia antes. Recomendo sem hesitar.</p><div class="t-author"><div class="t-av">AP</div><div><div class="t-name">Ana Paula</div><div class="t-role">Studio Bella</div></div></div></div>
+      <div class="t-card"><span class="quote-mark">&ldquo;</span><div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="t-text">Contratei o serviço de automação e os clientes ficam impressionados com a rapidez nas respostas. Parece que tenho uma equipe de atendimento 24h.</p><div class="t-author"><div class="t-av">FO</div><div><div class="t-name">Fernando Oliveira</div><div class="t-role">Clínica FisioVida</div></div></div></div>
+      <div class="t-card"><span class="quote-mark">&ldquo;</span><div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="t-text">Fiz o e-commerce e em 2 semanas já estava vendendo online. O processo foi muito simples e o resultado ficou incrível.</p><div class="t-author"><div class="t-av">CM</div><div><div class="t-name">Camila Melo</div><div class="t-role">Ateliê Encanto</div></div></div></div>
+      <div class="t-card"><span class="quote-mark">&ldquo;</span><div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="t-text">O tráfego pago triplicou o número de orçamentos em 30 dias. Nunca pensei que anúncio ia funcionar tão bem pra uma metalúrgica pequena.</p><div class="t-author"><div class="t-av">JS</div><div><div class="t-name">João Santos</div><div class="t-role">MetalPrecisa</div></div></div></div>
+      <div class="t-card"><span class="quote-mark">&ldquo;</span><div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="t-text">A automação do WhatsApp mudou o jogo. Meu atendimento ficou profissional de verdade, sem eu precisar ficar no celular o dia todo.</p><div class="t-author"><div class="t-av">LR</div><div><div class="t-name">Lucas Ramos</div><div class="t-role">Barbearia Corte & Arte</div></div></div></div>
+      <div class="t-card"><span class="quote-mark">&ldquo;</span><div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="t-text">O site ficou muito acima do que eu esperava. Rápido, bonito e já na primeira semana recebi mensagens de novos clientes pelo WhatsApp do site.</p><div class="t-author"><div class="t-av">PT</div><div><div class="t-name">Patrícia Torres</div><div class="t-role">Clínica Nutri Saúde</div></div></div></div>
+      <div class="t-card"><span class="quote-mark">&ldquo;</span><div class="t-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="t-text">Profissionalismo do início ao fim. Entregou no prazo, explicou tudo de forma simples e o resultado foi exatamente o que eu queria.</p><div class="t-author"><div class="t-av">GS</div><div><div class="t-name">Gabriel Souza</div><div class="t-role">Construtora GS</div></div></div></div>
+    </div>
+    <div class="t-nav fade-up">
+      <button class="t-btn" onclick="tNav(-1)"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div class="t-dots" id="tdots"></div>
+      <button class="t-btn" onclick="tNav(1)"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <span class="eyebrow-l">Sobre a Sipos Studio</span>
+        <h2>Tecnologia que <span>gera resultado</span>, não só aparência</h2>
+        <p>Sou o Eduardo Spínola, fundador da Sipos Studio. Comecei com sites e hoje ofereço uma solução digital completa para pequenas e médias empresas — do site à automação com IA, do tráfego pago ao e-commerce.</p>
+        <p>Você fala diretamente comigo do início ao fim. Sem intermediários, sem surpresas no orçamento. Antes de gastar um centavo, você vê a prévia do que será entregue.</p>
+        <p>Atendo empresas em todo o Brasil. Cada ferramenta que ofereço é a mesma que uso para gerenciar meu próprio negócio. Só recomendo o que funciona de verdade.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+          <a href="https://wa.me/5547989201634?text=Olá Eduardo! Vim pelo site." target="_blank" class="btn-primary" style="display:inline-flex">Falar com o Eduardo →</a>
+          <button onclick="openPopup()" class="btn-outline" style="display:inline-flex">Análise gratuita</button>
+        </div>
+      </div>
+      <div class="about-side fade-up d2">
+        <div class="a-feat"><div class="a-ico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><strong>Prévia grátis, sem compromisso</strong><span>Você vê o que será entregue antes de decidir</span></div></div>
+        <div class="a-feat"><div class="a-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><strong>Prazos que respeitamos</strong><span>Sites em 7 dias, projetos maiores no prazo combinado</span></div></div>
+        <div class="a-feat"><div class="a-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><strong>Atendimento direto e pessoal</strong><span>Fala comigo, não com assistente ou terceirizado</span></div></div>
+        <div class="a-feat"><div class="a-ico"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div><strong>Resultado mensurável</strong><span>Mais clientes, mais visibilidade, mais receita</span></div></div>
+        <div class="a-feat"><div class="a-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><strong>Atendemos em todo o Brasil</strong><span>100% online, sem limitação geográfica</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="selos">
+  <div class="container">
+    <span class="sec-eyebrow fade-up">Reconhecimentos</span>
+    <h2 class="sec-title fade-up" style="margin-bottom:40px">Certificações e parcerias</h2>
+    <div class="seals-wrap">
+      <div class="seal fade-scale"><div class="s-ico" style="background:#fff"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div><div class="s-txt"><strong>Google Partner</strong><span>Certificado em Google Ads</span></div></div>
+      <div class="seal fade-scale d1"><div class="s-ico" style="background:rgba(24,119,242,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#1877f2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div><div class="s-txt"><strong>Meta Business Partner</strong><span>Facebook & Instagram Ads</span></div></div>
+      <div class="seal fade-scale d2"><div class="s-ico" style="background:rgba(234,67,53,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#ea4335" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="s-txt"><strong>Google Analytics Certified</strong><span>Análise e métricas</span></div></div>
+      <div class="seal fade-scale d3"><div class="s-ico" style="background:rgba(245,158,11,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div class="s-txt"><strong>RD Station Partner</strong><span>Automação de marketing</span></div></div>
+      <div class="seal fade-scale d4"><div class="s-ico" style="background:rgba(34,197,94,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="s-txt"><strong>SSL & LGPD Compliant</strong><span>Segurança garantida</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="blog">
+  <div class="container">
+    <span class="sec-eyebrow fade-up">Blog</span>
+    <h2 class="sec-title fade-up">Conteúdo para o seu negócio</h2>
+    <p class="sec-sub fade-up">Dicas práticas de marketing digital, automação e crescimento para pequenas empresas.</p>
+    <div class="blog-grid" id="blogGrid">
+      <div class="b-card fade-scale"><div class="b-thumb"><span class="b-cat">Sites</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="b-body"><div class="b-date">15 Mar 2026 · Eduardo Spínola</div><h3>Por que seu negócio perde clientes sem um site profissional</h3><p>Descubra como a presença digital impacta diretamente no faturamento de pequenas empresas.</p><a class="b-link" href="/blog/por-que-seu-negocio-perde-clientes-sem-um-site">Ler artigo →</a></div></div>
+      <div class="b-card fade-scale d1"><div class="b-thumb"><span class="b-cat">Automação</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M20 2v4m0-4h-4"/></svg></div><div class="b-body"><div class="b-date">10 Mar 2026 · Eduardo Spínola</div><h3>Como automatizar o atendimento do seu negócio com IA</h3><p>Saiba como usar inteligência artificial para responder clientes e aumentar vendas no piloto automático.</p><a class="b-link" href="/blog/como-automatizar-atendimento-com-ia">Ler artigo →</a></div></div>
+      <div class="b-card fade-scale d2"><div class="b-thumb"><span class="b-cat">Tráfego</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="b-body"><div class="b-date">5 Mar 2026 · Eduardo Spínola</div><h3>Tráfego pago para pequenas empresas: por onde começar</h3><p>Google Ads ou Meta Ads? Quanto investir? Um guia para quem nunca fez anúncios.</p><a class="b-link" href="/blog/trafego-pago-para-pequenas-empresas">Ler artigo →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="container">
+    <h2 class="cta-title fade-up">Pronto para <span>crescer de verdade</span>?</h2>
+    <p class="cta-sub fade-up d1">Você pensa o que é melhor para o seu negócio. A gente cria. Mande uma mensagem e receba sua prévia em menos de 24h.</p>
+    <div class="cta-btns fade-up d2">
+      <a href="https://wa.me/5547989201634?text=Olá! Quero uma prévia gratuita." target="_blank" class="btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Quero minha prévia gratuita</a>
+      <button onclick="openPopup()" class="btn-outline">Diagnóstico gratuito</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <img class="footer-logo" src="logo.png" alt="Sipos Studio"/>
+      <p>© 2026 Sipos Studio. Brasil.</p>
+      <div class="social-links">
+        <a href="https://instagram.com/siposstudio" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
+        <a href="https://youtube.com/@siposstudio" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="var(--bg)" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>YouTube</a>
+        <a href="https://linkedin.com/company/siposstudio" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5547989201634?text=Olá! Vim pelo site da Sipos Studio." target="_blank" class="wa-float" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<!-- POPUP DIAGNÓSTICO -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div class="popup-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+    <h3>Análise gratuita <span>do seu negócio</span></h3>
+    <p>Em 20 minutos analisamos o digital do seu negócio e mostramos exatamente o que está faltando para você crescer.</p>
+    <div class="popup-list">
+      <div class="popup-item"><span class="p-check">✓</span>Análise do seu site e presença online</div>
+      <div class="popup-item"><span class="p-check">✓</span>O que seus concorrentes fazem melhor</div>
+      <div class="popup-item"><span class="p-check">✓</span>Plano de ação personalizado para o seu negócio</div>
+      <div class="popup-item"><span class="p-check">✓</span>Sem compromisso — 100% gratuito</div>
+    </div>
+    <a href="https://wa.me/5547989201634?text=Olá! Quero fazer a análise gratuita do meu negócio." target="_blank" class="btn-primary" style="display:flex;justify-content:center;width:100%" onclick="closePopup()">Quero minha análise gratuita →</a>
+  </div>
+</div>
+
+
+
+
+<script>
+// HEADER
+const hdr=document.getElementById('site-header');
+window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{rootMargin:'0px 0px -50px 0px',threshold:.1});
+document.querySelectorAll('.fade-up,.fade-scale').forEach(el=>obs.observe(el));
+
+// ROTATING WORDS
+const words=['automações','tráfego pago','e-commerce','aplicativos','CRM','resultados'];
+let wi=0;const rw=document.getElementById('rw');
+setInterval(()=>{rw.classList.add('out');setTimeout(()=>{wi=(wi+1)%words.length;rw.textContent=words[wi];rw.classList.remove('out')},320)},2600);
+
+// TESTIMONIALS PAGED GRID
+const tCards=[...document.querySelectorAll('#tgrid .t-card')];
+let tPage=0;
+function tPerPage(){return innerWidth>900?3:innerWidth>580?2:1}
+function tPages(){return Math.ceil(tCards.length/tPerPage())}
+function buildTDots(){
+  const d=document.getElementById('tdots');d.innerHTML='';
+  for(let i=0;i<tPages();i++){const dot=document.createElement('div');dot.className='t-dot'+(i===0?' on':'');dot.onclick=()=>{tPage=i;showTPage()};d.appendChild(dot)}
+}
+function showTPage(){
+  const pp=tPerPage(),start=tPage*pp,end=start+pp;
+  tCards.forEach((c,i)=>{c.classList.toggle('visible',i>=start&&i<end)});
+  document.querySelectorAll('.t-dot').forEach((d,i)=>d.classList.toggle('on',i===tPage));
+}
+function tNav(dir){tPage=Math.max(0,Math.min(tPage+dir,tPages()-1));showTPage()}
+buildTDots();showTPage();window.addEventListener('resize',()=>{buildTDots();showTPage()});
+
+// POPUP
+function openPopup(){document.getElementById('popup').classList.add('open')}
+function closePopup(){document.getElementById('popup').classList.remove('open')}
+document.getElementById('popup').addEventListener('click',e=>{if(e.target===e.currentTarget)closePopup()});
+setTimeout(()=>{if(!sessionStorage.getItem('popShown')){openPopup();sessionStorage.setItem('popShown','1')}},20000);
+
+<!-- MODAL SERVIÇOS -->
+<div class="sm-overlay" id="smOverlay">
+  <div class="sm-box">
+    <button class="sm-close" onclick="closeSM()">✕</button>
+    <div class="sm-ico" id="smIco"></div>
+    <h3 id="smTitle"></h3>
+    <div class="sm-price" id="smPrice"></div>
+    <p id="smDesc"></p>
+    <div class="sm-list" id="smList"></div>
+    <a id="smCta" href="#" target="_blank" class="btn-primary" style="display:inline-flex" onclick="closeSM()">Quero saber mais →</a>
+  </div>
+</div>
+
+<script>
+// HEADER
+const hdr=document.getElementById('site-header');
+window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{rootMargin:'0px 0px -50px 0px',threshold:.1});
+document.querySelectorAll('.fade-up,.fade-scale').forEach(el=>obs.observe(el));
+
+// ROTATING WORDS
+const words=['automações','tráfego pago','e-commerce','aplicativos','CRM','resultados'];
+let wi=0;const rw=document.getElementById('rw');
+setInterval(()=>{rw.classList.add('out');setTimeout(()=>{wi=(wi+1)%words.length;rw.textContent=words[wi];rw.classList.remove('out')},320)},2600);
+
+// TESTIMONIALS PAGED GRID
+const tCards=[...document.querySelectorAll('#tgrid .t-card')];
+let tPage=0;
+function tPerPage(){return innerWidth>900?3:innerWidth>580?2:1}
+function tPages(){return Math.ceil(tCards.length/tPerPage())}
+function buildTDots(){
+  const d=document.getElementById('tdots');d.innerHTML='';
+  for(let i=0;i<tPages();i++){const dot=document.createElement('div');dot.className='t-dot'+(i===0?' on':'');dot.onclick=()=>{tPage=i;showTPage()};d.appendChild(dot)}
+}
+function showTPage(){
+  const pp=tPerPage(),start=tPage*pp,end=start+pp;
+  tCards.forEach((c,i)=>{c.classList.toggle('visible',i>=start&&i<end)});
+  document.querySelectorAll('.t-dot').forEach((d,i)=>d.classList.toggle('on',i===tPage));
+}
+function tNav(dir){tPage=Math.max(0,Math.min(tPage+dir,tPages()-1));showTPage()}
+buildTDots();showTPage();window.addEventListener('resize',()=>{buildTDots();showTPage()});
+
+// POPUP
+function openPopup(){document.getElementById('popup').classList.add('open')}
+function closePopup(){document.getElementById('popup').classList.remove('open')}
+document.getElementById('popup').addEventListener('click',e=>{if(e.target===e.currentTarget)closePopup()});
+setTimeout(()=>{if(!sessionStorage.getItem('popShown')){openPopup();sessionStorage.setItem('popShown','1')}},20000);
+
+// MODAL SERVIÇOS
+const smData={
+  site:{ico:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>',title:'Sites Profissionais',price:'A partir de R$797',desc:'Um site profissional é o cartão de visita digital do seu negócio. Clientes pesquisam no Google antes de comprar — se você não aparecer, vai no concorrente.',items:['Design moderno e exclusivo para o seu negócio','100% responsivo — funciona no celular e computador','Otimizado para Google (SEO básico incluído)','Botão de WhatsApp, formulário de contato e mapa','Entrega em até 7 dias úteis','1 ano de hospedagem incluso','Suporte pós-entrega']},
+  auto:{ico:'<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M20 2v4m0 0h-4m4 0-3-3"/></svg>',title:'Automações com IA',price:'A partir de R$497',desc:'Imagine ter um atendente disponível 24h por dia que responde clientes, agenda consultas e faz follow-up automaticamente — sem você precisar fazer nada.',items:['Atendimento automático no WhatsApp','Agendamento de consultas ou reuniões','Follow-up automático com leads e clientes','Respostas inteligentes com IA','Integração com seu site e CRM','Relatório mensal de conversas','Configuração e treinamento completos']},
+  trafego:{ico:'<svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',title:'Gestão de Tráfego Pago',price:'A partir de R$597/mês',desc:'Anúncios no Google e Instagram para você aparecer exatamente para quem está procurando o que você vende — no momento certo.',items:['Campanhas no Google Ads','Campanhas no Meta Ads (Facebook e Instagram)','Definição de público-alvo estratégico','Criação de textos e criativos','Monitoramento e otimização semanal','Relatório mensal de resultados','Reunião mensal de alinhamento']},
+  ecom:{ico:'<svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>',title:'E-commerce',price:'A partir de R$1.497',desc:'Loja virtual completa para vender seus produtos online. Sem taxa de marketplace, sem dividir seus clientes com concorrentes.',items:['Loja virtual com design exclusivo','Integração com Pix, cartão e boleto','Carrinho de compras e checkout otimizado','Painel para gerenciar produtos e pedidos','Gestão de estoque','Cálculo de frete automático','Otimização para Google Shopping']},
+  soft:{ico:'<svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>',title:'Softwares e Aplicativos',price:'Sob consulta',desc:'Quando as ferramentas prontas não atendem as necessidades do seu negócio, criamos uma solução personalizada — sistemas web, apps mobile e dashboards do zero.',items:['Levantamento completo de requisitos','Sistemas web personalizados','Aplicativos para Android e iOS','Dashboards e painéis de controle','Integração com outros sistemas','Automação de processos internos','Suporte e manutenção contínuos']},
+  crm:{ico:'<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',title:'CRM Personalizado',price:'Sob consulta',desc:'Um CRM organiza todos os seus clientes, leads e vendas em um só lugar — com painel completo para acompanhar cada oportunidade de negócio.',items:['Kanban de vendas com etapas personalizadas','Gestão de leads e clientes','Histórico de conversas e interações','Controle financeiro e de receita','Alertas de follow-up','Relatórios de desempenho','Integração com WhatsApp e automações']}
+};
+function openSM(k){
+  const d=smData[k];if(!d)return;
+  document.getElementById('smIco').innerHTML=d.ico;
+  document.getElementById('smTitle').textContent=d.title;
+  document.getElementById('smPrice').textContent=d.price;
+  document.getElementById('smDesc').textContent=d.desc;
+  document.getElementById('smList').innerHTML=d.items.map(i=>`<div class="sm-item">${i}</div>`).join('');
+  document.getElementById('smCta').href=`https://wa.me/5547989201634?text=Olá! Quero saber mais sobre ${d.title}.`;
+  document.getElementById('smOverlay').classList.add('open');
+}
+function closeSM(){document.getElementById('smOverlay').classList.remove('open')}
+document.getElementById('smOverlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeSM()});
+</script>
+</body>
+</html>
