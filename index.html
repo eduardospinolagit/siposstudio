@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Sipos Studio — Sites, Automações, Tráfego e Muito Mais</title>
-<meta name="description" content="Você pensa o que é melhor para o seu negócio e a gente cria. Sites, automações com IA, tráfego pago, e-commerce, apps e CRM."/>
+<meta name="description" content="Você pensa o que é melhor para o sua empresa e a gente cria. Sites, automações com IA, tráfego pago, e-commerce, apps e CRM."/>
 <link rel="icon" type="image/png" href="favicon.png"/>
 <link rel="apple-touch-icon" href="favicon.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -48,12 +48,10 @@ header.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(20px);border-
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;font-size:.78rem;color:#a1a1a1;border:1px solid rgba(255,255,255,.1);margin-bottom:36px}
 .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--g);animation:blink 2.5s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-h1.hero-title{font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:800;line-height:1.15;letter-spacing:-.03em;margin-bottom:10px;max-width:700px}
-.hero-slogan{font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:800;line-height:1.15;letter-spacing:-.03em;color:var(--g);margin-bottom:24px}
-.hero-rotating{display:block;font-size:clamp(.85rem,1.6vw,1rem);color:#555;font-weight:400;min-height:1.6em;margin-bottom:22px;letter-spacing:.01em}
-.rotating-word{color:var(--g);font-weight:500;transition:opacity .3s,transform .3s;display:inline-block}
-.rotating-word.out{opacity:0;transform:translateY(10px)}
-.hero-sub{font-size:.95rem;color:#777;line-height:1.8;max-width:500px;margin:0 auto 40px}
+h1.hero-title{font-size:clamp(2.5rem,8vw,5rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:32px;max-width:900px}
+.rotating-word{display:inline-block;color:var(--g);min-width:260px;transition:opacity .3s ease,transform .3s ease}
+.rotating-word.animating{opacity:0;transform:translateY(20px)}
+.hero-sub{font-size:1.1rem;color:#a1a1a1;line-height:1.7;max-width:600px;margin:0 auto 48px}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-size:.9rem;font-weight:600;font-family:'Inter',sans-serif;background:var(--g);color:#fff;border:none;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}
 .btn-primary:hover{background:var(--g2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(34,197,94,.25)}
@@ -310,9 +308,11 @@ footer p{font-size:.78rem;color:#333}
   <div class="hero-orb orb3"></div>
   <div class="hero-content">
     <div class="hero-badge fade-up"><span class="badge-dot"></span>Atendendo empresas em todo o Brasil</div>
-    <h1 class="hero-title fade-up d1">Você pensa no negócio.<br>A gente cuida do digital.</h1>
-    <p class="hero-rotating fade-up d2">Sites · <span class="rotating-word" id="rw">automações</span> · tráfego · e-commerce · apps</p>
-    <p class="hero-sub fade-up d3">Presença online profissional, automações com IA e anúncios que trazem clientes — tudo para o seu negócio crescer.</p>
+    <h1 class="hero-title fade-up d1">
+      Sua empresa merece<br>
+      <span class="rotating-word" id="rw">ser moderna</span>
+    </h1>
+    <p class="hero-sub fade-up d2">Hoje seu cliente pesquisa no Google antes de qualquer coisa. Se sua empresa não aparece, não existe. A gente resolve isso — do site ao app, do anúncio à automação.</p>
     <div class="hero-ctas fade-up d4">
       <a href="https://wa.me/5547989201634?text=Olá! Quero uma prévia gratuita para meu negócio." target="_blank" class="btn-primary">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -366,7 +366,7 @@ footer p{font-size:.78rem;color:#333}
   <div class="container">
     <span class="sec-eyebrow fade-up">O que fazemos</span>
     <h2 class="sec-title fade-up">Soluções digitais completas</h2>
-    <p class="sec-sub fade-up">Não somos só uma empresa de sites. Construímos a presença digital e a estrutura tecnológica do seu negócio.</p>
+    <p class="sec-sub fade-up">Não somos só uma empresa de sites. Construímos a presença digital e a estrutura tecnológica do sua empresa.</p>
     <div class="services-grid">
       <div class="srv-card fade-scale">
         <div class="srv-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
@@ -377,7 +377,7 @@ footer p{font-size:.78rem;color:#333}
       <div class="srv-card fade-scale d1">
         <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M20 2v4m0 0h-4m4 0-3-3"/></svg></div>
         <h3>Automações com IA</h3>
-        <p>Atendimento automático no WhatsApp, respostas inteligentes, agendamento e follow-up. Seu negócio funcionando 24h sem você precisar fazer nada.</p>
+        <p>Atendimento automático no WhatsApp, respostas inteligentes, agendamento e follow-up. Sua empresa funcionando 24h sem você precisar fazer nada.</p>
         <div class="srv-footer"><span class="srv-price">A partir de R$497</span><button class="srv-more" onclick="openSM('auto')">Saiba mais →</button></div>
       </div>
       <div class="srv-card fade-scale d2">
@@ -395,13 +395,13 @@ footer p{font-size:.78rem;color:#333}
       <div class="srv-card fade-scale d2">
         <div class="srv-ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
         <h3>Softwares e Aplicativos</h3>
-        <p>Sistemas e apps personalizados para a operação do seu negócio. Controle interno, automação de processos e dashboards sob medida.</p>
+        <p>Sistemas e apps personalizados para a operação do sua empresa. Controle interno, automação de processos e dashboards sob medida.</p>
         <div class="srv-footer"><span class="srv-price">Sob consulta</span><button class="srv-more" onclick="openSM('soft')">Saiba mais →</button></div>
       </div>
       <div class="srv-card fade-scale d3">
         <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>CRM Personalizado</h3>
-        <p>Sistema de gestão de clientes feito para o seu negócio. Controle leads, follow-ups, vendas e receita em um painel simples e eficiente.</p>
+        <p>Sistema de gestão de clientes feito para o sua empresa. Controle leads, follow-ups, vendas e receita em um painel simples e eficiente.</p>
         <div class="srv-footer"><span class="srv-price">Sob consulta</span><button class="srv-more" onclick="openSM('crm')">Saiba mais →</button></div>
       </div>
     </div>
@@ -412,13 +412,13 @@ footer p{font-size:.78rem;color:#333}
   <div class="container">
     <span class="sec-eyebrow fade-up">Simples assim</span>
     <h2 class="sec-title fade-up">Do contato ao resultado</h2>
-    <p class="sec-sub fade-up">Processo limpo e direto. Você cuida do seu negócio enquanto a gente cuida do digital.</p>
+    <p class="sec-sub fade-up">Processo limpo e direto. Você cuida do sua empresa enquanto a gente cuida do digital.</p>
     <div class="steps-grid">
       <div class="steps-line"></div>
       <div class="step fade-up"><div class="step-n">01</div><h3>Prévia gratuita</h3><p>Você manda o contato. A gente cria uma prévia do que será entregue, sem cobrar nada.</p></div>
       <div class="step fade-up d1"><div class="step-n">02</div><h3>Você aprova</h3><p>Ajusta qualquer detalhe até estar exatamente como você imaginou.</p></div>
       <div class="step fade-up d2"><div class="step-n">03</div><h3>A gente entrega</h3><p>Desenvolvemos, testamos e entregamos. Rápido, sem surpresas e no prazo combinado.</p></div>
-      <div class="step fade-up d3"><div class="step-n">04</div><h3>Seu negócio cresce</h3><p>Mais visibilidade, mais clientes, mais receita. E a gente continua do seu lado.</p></div>
+      <div class="step fade-up d3"><div class="step-n">04</div><h3>Sua empresa cresce</h3><p>Mais visibilidade, mais clientes, mais receita. E a gente continua do seu lado.</p></div>
     </div>
   </div>
 </section>
@@ -513,12 +513,12 @@ footer p{font-size:.78rem;color:#333}
 <section id="blog">
   <div class="container">
     <span class="sec-eyebrow fade-up">Blog</span>
-    <h2 class="sec-title fade-up">Conteúdo para o seu negócio</h2>
+    <h2 class="sec-title fade-up">Conteúdo para o sua empresa</h2>
     <p class="sec-sub fade-up">Dicas práticas de marketing digital, automação e crescimento para pequenas empresas.</p>
     <div class="blog-grid" id="blogGrid">
-      <div class="b-card fade-scale"><div class="b-thumb"><span class="b-cat">Sites</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="b-body"><div class="b-date">15 Mar 2026 · Eduardo Spínola</div><h3>Por que seu negócio perde clientes sem um site profissional</h3><p>Descubra como a presença digital impacta diretamente no faturamento de pequenas empresas.</p><a class="b-link" href="/blog/por-que-seu-negocio-perde-clientes-sem-um-site">Ler artigo →</a></div></div>
-      <div class="b-card fade-scale d1"><div class="b-thumb"><span class="b-cat">Automação</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M20 2v4m0-4h-4"/></svg></div><div class="b-body"><div class="b-date">10 Mar 2026 · Eduardo Spínola</div><h3>Como automatizar o atendimento do seu negócio com IA</h3><p>Saiba como usar inteligência artificial para responder clientes e aumentar vendas no piloto automático.</p><a class="b-link" href="/blog/como-automatizar-atendimento-com-ia">Ler artigo →</a></div></div>
-      <div class="b-card fade-scale d2"><div class="b-thumb"><span class="b-cat">Tráfego</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="b-body"><div class="b-date">5 Mar 2026 · Eduardo Spínola</div><h3>Tráfego pago para pequenas empresas: por onde começar</h3><p>Google Ads ou Meta Ads? Quanto investir? Um guia para quem nunca fez anúncios.</p><a class="b-link" href="/blog/trafego-pago-para-pequenas-empresas">Ler artigo →</a></div></div>
+      <div class="b-card fade-scale"><div class="b-thumb"><span class="b-cat">Sites</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="b-body"><div class="b-date">15 Mar 2026 · Eduardo Spínola</div><h3>Por que sua empresa perde clientes sem um site profissional</h3><p>Descubra como a presença digital impacta diretamente no faturamento de pequenas empresas.</p><a class="b-link" href="/blog/?p=por-que-sua-empresa-perde-clientes-sem-um-site">Ler artigo →</a></div></div>
+      <div class="b-card fade-scale d1"><div class="b-thumb"><span class="b-cat">Automação</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M20 2v4m0-4h-4"/></svg></div><div class="b-body"><div class="b-date">10 Mar 2026 · Eduardo Spínola</div><h3>Como automatizar o atendimento da sua empresa com IA</h3><p>Saiba como usar inteligência artificial para responder clientes e aumentar vendas no piloto automático.</p><a class="b-link" href="/blog/?p=como-automatizar-atendimento-com-ia">Ler artigo →</a></div></div>
+      <div class="b-card fade-scale d2"><div class="b-thumb"><span class="b-cat">Tráfego</span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="b-body"><div class="b-date">5 Mar 2026 · Eduardo Spínola</div><h3>Tráfego pago para pequenas empresas: por onde começar</h3><p>Google Ads ou Meta Ads? Quanto investir? Um guia para quem nunca fez anúncios.</p><a class="b-link" href="/blog/?p=trafego-pago-para-pequenas-empresas">Ler artigo →</a></div></div>
     </div>
   </div>
 </section>
@@ -526,7 +526,7 @@ footer p{font-size:.78rem;color:#333}
 <section id="cta">
   <div class="container">
     <h2 class="cta-title fade-up">Pronto para <span>crescer de verdade</span>?</h2>
-    <p class="cta-sub fade-up d1">Você pensa o que é melhor para o seu negócio. A gente cria. Mande uma mensagem e receba sua prévia em menos de 24h.</p>
+    <p class="cta-sub fade-up d1">Você pensa o que é melhor para o sua empresa. A gente cria. Mande uma mensagem e receba sua prévia em menos de 24h.</p>
     <div class="cta-btns fade-up d2">
       <a href="https://wa.me/5547989201634?text=Olá! Quero uma prévia gratuita." target="_blank" class="btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Quero minha prévia gratuita</a>
       <button onclick="openPopup()" class="btn-outline">Diagnóstico gratuito</button>
@@ -555,12 +555,12 @@ footer p{font-size:.78rem;color:#333}
   <div class="popup-box">
     <button class="popup-close" onclick="closePopup()">✕</button>
     <div class="popup-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-    <h3>Análise gratuita <span>do seu negócio</span></h3>
-    <p>Em 20 minutos analisamos o digital do seu negócio e mostramos exatamente o que está faltando para você crescer.</p>
+    <h3>Análise gratuita <span>do sua empresa</span></h3>
+    <p>Em 20 minutos analisamos o digital do sua empresa e mostramos exatamente o que está faltando para você crescer.</p>
     <div class="popup-list">
       <div class="popup-item"><span class="p-check">✓</span>Análise do seu site e presença online</div>
       <div class="popup-item"><span class="p-check">✓</span>O que seus concorrentes fazem melhor</div>
-      <div class="popup-item"><span class="p-check">✓</span>Plano de ação personalizado para o seu negócio</div>
+      <div class="popup-item"><span class="p-check">✓</span>Plano de ação personalizado para o sua empresa</div>
       <div class="popup-item"><span class="p-check">✓</span>Sem compromisso — 100% gratuito</div>
     </div>
     <a href="https://wa.me/5547989201634?text=Olá! Quero fazer a análise gratuita do meu negócio." target="_blank" class="btn-primary" style="display:flex;justify-content:center;width:100%" onclick="closePopup()">Quero minha análise gratuita →</a>
@@ -570,6 +570,19 @@ footer p{font-size:.78rem;color:#333}
 
 
 
+
+<!-- MODAL SERVIÇOS -->
+<div class="sm-overlay" id="smOverlay">
+  <div class="sm-box">
+    <button class="sm-close" onclick="closeSM()">✕</button>
+    <div class="sm-ico" id="smIco"></div>
+    <h3 id="smTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:8px;letter-spacing:-.02em"></h3>
+    <div class="sm-price" id="smPrice"></div>
+    <p id="smDesc" style="font-size:.9rem;color:#707070;line-height:1.8;margin-bottom:12px"></p>
+    <div class="sm-list" id="smList"></div>
+    <a id="smCta" href="#" target="_blank" class="btn-primary" style="display:inline-flex;margin-top:4px" onclick="closeSM()">Quero saber mais →</a>
+  </div>
+</div>
 
 <script>
 // HEADER
@@ -581,9 +594,12 @@ const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.ta
 document.querySelectorAll('.fade-up,.fade-scale').forEach(el=>obs.observe(el));
 
 // ROTATING WORDS
-const words=['automações','tráfego pago','e-commerce','aplicativos','CRM','resultados'];
+const words=['ser moderna','ser profissional','ser encontrada','ser tecnológica','ser lucrativa','ser referência'];
 let wi=0;const rw=document.getElementById('rw');
-setInterval(()=>{rw.classList.add('out');setTimeout(()=>{wi=(wi+1)%words.length;rw.textContent=words[wi];rw.classList.remove('out')},320)},2600);
+setInterval(()=>{
+  rw.classList.add('animating');
+  setTimeout(()=>{wi=(wi+1)%words.length;rw.textContent=words[wi];rw.classList.remove('animating')},300);
+},2500);
 
 // TESTIMONIALS PAGED GRID
 const tCards=[...document.querySelectorAll('#tgrid .t-card')];
@@ -607,6 +623,28 @@ function openPopup(){document.getElementById('popup').classList.add('open')}
 function closePopup(){document.getElementById('popup').classList.remove('open')}
 document.getElementById('popup').addEventListener('click',e=>{if(e.target===e.currentTarget)closePopup()});
 setTimeout(()=>{if(!sessionStorage.getItem('popShown')){openPopup();sessionStorage.setItem('popShown','1')}},20000);
+
+// MODAL SERVIÇOS
+const smData={
+  site:{ico:'<svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>',title:'Sites Profissionais',price:'A partir de R$797',desc:'Site rápido, moderno e que aparece no Google. Sua empresa com apresentação profissional, botão de WhatsApp, formulário de contato e mapa — do zero ao ar em 7 dias.',items:['Design exclusivo para sua empresa','100% responsivo — funciona no celular e computador','Otimizado para Google (SEO básico incluído)','Botão de WhatsApp, formulário e mapa integrados','Entrega em até 7 dias úteis','1 ano de hospedagem incluso','Suporte pós-entrega']},
+  auto:{ico:'<svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M20 2v4m0 0h-4m4 0-3-3"/></svg>',title:'Automações com IA',price:'A partir de R$497',desc:'Atendimento automático no WhatsApp, respostas inteligentes, agendamento e follow-up sem precisar fazer nada. Sua empresa funcionando 24h por dia.',items:['Atendimento automático no WhatsApp 24h','Agendamento de consultas ou reuniões','Follow-up automático com leads e clientes','Respostas inteligentes com IA','Integração com seu site e CRM','Relatório mensal de conversas','Configuração e treinamento completos']},
+  trafego:{ico:'<svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',title:'Gestão de Tráfego Pago',price:'A partir de R$597/mês',desc:'Anúncios no Google e Instagram para trazer clientes qualificados até você. Configuração, gestão mensal e relatório de resultados.',items:['Campanhas no Google Ads','Campanhas no Meta Ads (Facebook e Instagram)','Definição de público-alvo estratégico','Criação de textos e criativos','Monitoramento e otimização semanal','Relatório mensal de resultados','Reunião mensal de alinhamento']},
+  ecom:{ico:'<svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>',title:'E-commerce',price:'A partir de R$1.497',desc:'Loja virtual completa para vender seus produtos online. Sem taxa de marketplace, sem dividir seus clientes com concorrentes.',items:['Loja virtual com design exclusivo','Integração com Pix, cartão e boleto','Carrinho de compras e checkout otimizado','Painel para gerenciar produtos e pedidos','Gestão de estoque','Cálculo de frete automático','Otimização para Google Shopping']},
+  soft:{ico:'<svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>',title:'Softwares e Aplicativos',price:'Sob consulta',desc:'Sistemas e apps personalizados para a operação da sua empresa. Controle interno, automação de processos e dashboards sob medida.',items:['Levantamento completo de requisitos','Sistemas web personalizados','Aplicativos para Android e iOS','Dashboards e painéis de controle','Integração com outros sistemas','Automação de processos internos','Suporte e manutenção contínuos']},
+  crm:{ico:'<svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',title:'CRM Personalizado',price:'Sob consulta',desc:'Sistema de gestão de clientes feito para sua empresa. Controle leads, follow-ups, vendas e receita em um painel simples e eficiente.',items:['Kanban de vendas com etapas personalizadas','Gestão de leads e clientes','Histórico de conversas e interações','Controle financeiro e de receita','Alertas de follow-up','Relatórios de desempenho','Integração com WhatsApp e automações']}
+};
+function openSM(k){
+  const d=smData[k];if(!d)return;
+  document.getElementById('smIco').innerHTML=d.ico;
+  document.getElementById('smTitle').textContent=d.title;
+  document.getElementById('smPrice').textContent=d.price;
+  document.getElementById('smDesc').textContent=d.desc;
+  document.getElementById('smList').innerHTML=d.items.map(i=>`<div class="sm-item">${i}</div>`).join('');
+  document.getElementById('smCta').href=`https://wa.me/5547989201634?text=Olá! Quero saber mais sobre ${d.title}.`;
+  document.getElementById('smOverlay').classList.add('open');
+}
+function closeSM(){document.getElementById('smOverlay').classList.remove('open')}
+document.getElementById('smOverlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeSM()});
 </script>
 </body>
 </html>
