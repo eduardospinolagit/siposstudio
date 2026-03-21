@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title id="pg-title">Artigo — Sipos Studio</title>
+<meta name="description" id="pg-desc" content=""/>
+<link rel="icon" type="image/png" href="/favicon.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--g:#22c55e;--g2:#16a34a;--bg:#0a0a0a;--card:#111;--brd:rgba(255,255,255,.08);--lt:#f0f0f0;--gr:#666;--gr2:#888}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--lt);-webkit-font-smoothing:antialiased;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:100%;max-width:720px;margin:0 auto;padding:0 24px}
+.container-wide{width:100%;max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* HEADER */
+header{padding:16px 0;border-bottom:1px solid var(--brd);background:rgba(10,10,10,.92);backdrop-filter:blur(20px);position:sticky;top:0;z-index:10}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo-img{height:32px;width:auto}
+.btn-nav{padding:8px 18px;border-radius:8px;background:var(--g);color:#fff;font-size:.82rem;font-weight:600;border:none;cursor:pointer;transition:background .2s}
+.btn-nav:hover{background:var(--g2)}
+
+/* NOT FOUND */
+#not-found{padding:80px 24px;text-align:center;display:none}
+#not-found h2{font-size:1.6rem;font-weight:800;margin-bottom:12px}
+#not-found p{color:var(--gr);margin-bottom:24px}
+
+/* ARTICLE */
+#article-wrap{display:none;padding:60px 0 80px}
+.breadcrumb{font-size:.78rem;color:var(--gr);margin-bottom:28px}
+.breadcrumb a{color:var(--gr);transition:color .2s}
+.breadcrumb a:hover{color:var(--g)}
+.breadcrumb span{margin:0 6px;color:#2a2a2a}
+.art-cat{display:inline-block;font-size:.7rem;font-weight:700;color:var(--g);background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+#art-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+.art-meta{font-size:.8rem;color:#444;margin-bottom:32px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.art-meta span{display:flex;align-items:center;gap:5px}
+#art-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;margin-bottom:40px;border:1px solid var(--brd)}
+#art-img.hidden{display:none}
+.art-body{font-size:1rem;color:#999;line-height:1.85}
+.art-body p{margin-bottom:20px}
+.art-body h2{font-size:1.3rem;font-weight:700;color:var(--lt);margin:36px 0 12px;letter-spacing:-.02em}
+.art-body h3{font-size:1.05rem;font-weight:600;color:var(--lt);margin:24px 0 10px}
+.art-body ul,.art-body ol{margin:0 0 20px 20px}
+.art-body li{margin-bottom:6px}
+.art-body strong{color:var(--lt);font-weight:600}
+.art-body blockquote{border-left:3px solid var(--g);padding:12px 20px;background:rgba(34,197,94,.04);border-radius:0 8px 8px 0;margin:24px 0;font-style:italic;color:#888}
+
+/* DIVIDER */
+.art-divider{border:none;border-top:1px solid var(--brd);margin:48px 0}
+
+/* CTA INLINE */
+.art-cta{background:var(--card);border:1px solid rgba(34,197,94,.2);border-radius:14px;padding:28px;text-align:center;margin:40px 0}
+.art-cta h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.art-cta p{font-size:.88rem;color:var(--gr);margin-bottom:18px;line-height:1.65}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:9px;font-size:.87rem;font-weight:600;background:var(--g);color:#fff;border:none;cursor:pointer;transition:background .2s}
+.btn-primary:hover{background:var(--g2)}
+
+/* RELATED */
+.related{padding:60px 0;border-top:1px solid var(--brd)}
+.related h2{font-size:1.15rem;font-weight:700;margin-bottom:24px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:768px){.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.related-grid{grid-template-columns:1fr}}
+.rel-card{background:var(--card);border:1px solid var(--brd);border-radius:12px;overflow:hidden;transition:border-color .2s,transform .2s;cursor:pointer}
+.rel-card:hover{border-color:rgba(34,197,94,.25);transform:translateY(-4px)}
+.rel-thumb{aspect-ratio:16/9;background:#111;display:flex;align-items:center;justify-content:center}
+.rel-thumb svg{opacity:.08}
+.rel-info{padding:14px}
+.rel-cat{font-size:.66rem;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.rel-title{font-size:.83rem;font-weight:600;line-height:1.4}
+
+/* FOOTER */
+footer{padding:36px 0;border-top:1px solid var(--brd);text-align:center}
+footer p{font-size:.78rem;color:#333}
+footer a{color:var(--g)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container-wide header-inner">
+    <a href="/"><img class="logo-img" src="/logo.png" alt="Sipos Studio"/></a>
+    <a href="https://wa.me/5547989201634?text=Olá! Vim pelo blog e quero saber mais." target="_blank" class="btn-nav">Fale conosco</a>
+  </div>
+</header>
+
+<div id="not-found">
+  <div class="container">
+    <h2>Artigo não encontrado</h2>
+    <p>O post que você está procurando não existe ou foi removido.</p>
+    <a href="/#blog" class="btn-primary">← Voltar ao blog</a>
+  </div>
+</div>
+
+<article id="article-wrap">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Início</a><span>›</span><a href="/#blog">Blog</a><span>›</span><span id="art-breadcrumb"></span></div>
+    <span class="art-cat" id="art-cat"></span>
+    <h1 id="art-title"></h1>
+    <div class="art-meta">
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span id="art-date"></span></span>
+      <span>·</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span id="art-author"></span></span>
+      <span>·</span>
+      <span id="art-readtime"></span>
+    </div>
+    <img id="art-img" src="" alt=""/>
+    <div class="art-body" id="art-body"></div>
+
+    <div class="art-cta">
+      <h3>Gostou do conteúdo? A gente pode ajudar o seu negócio também.</h3>
+      <p>Análise gratuita do digital da sua empresa. Sem compromisso.</p>
+      <a href="https://wa.me/5547989201634?text=Olá! Vim pelo blog e quero uma análise gratuita." target="_blank" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero minha análise gratuita
+      </a>
+    </div>
+  </div>
+
+  <div class="related container-wide">
+    <h2>Outros artigos</h2>
+    <div class="related-grid" id="related-grid"></div>
+  </div>
+</article>
+
+<footer>
+  <div class="container-wide">
+    <p>© 2026 Sipos Studio · <a href="/">Início</a> · <a href="/#blog">Blog</a></p>
+  </div>
+</footer>
+
+<script>
+// Pega o slug da URL: /blog/meu-post-aqui
+const slug = location.pathname.replace(/^\/blog\//,'').replace(/\/$/,'');
+const posts = JSON.parse(localStorage.getItem('sipos_blog_v2')||'[]');
+
+// Posts fixos (hardcoded) — adicione aqui os 3 artigos iniciais
+const fixedPosts = [
+  {id:'fixed-1',slug:'por-que-seu-negocio-perde-clientes-sem-um-site',title:'Por que seu negócio perde clientes sem um site profissional',cat:'Sites',author:'Eduardo Spínola',date:'15 Mar 2026',summary:'Descubra como a presença digital impacta diretamente no faturamento de pequenas empresas.',body:`Você já parou para pensar no que acontece quando alguém recomenda o seu negócio para um amigo?
+
+A primeira coisa que essa pessoa faz é pesquisar o nome da sua empresa no Google.
+
+Se não aparecer nada, ou aparecer um site feio e desatualizado, a percepção imediata é de que a empresa não é confiável ou profissional. E sabe o que acontece? Ela vai no concorrente.
+
+## O comportamento do consumidor mudou
+
+Segundo dados do Google, mais de 90% dos consumidores pesquisam online antes de comprar, mesmo quando a compra vai acontecer presencialmente.
+
+Isso significa que um restaurante, uma clínica, uma loja de roupas, um prestador de serviços — todos precisam ter presença digital para não perder vendas.
+
+## O site é o cartão de visita digital
+
+Diferente das redes sociais, um site profissional transmite autoridade. Ele diz: "somos uma empresa séria, que investe na própria imagem".
+
+Além disso, um site otimizado para Google aparece nos resultados de busca quando alguém procura pelo serviço que você oferece na sua cidade. Isso é tráfego orgânico — visitantes que chegam até você sem você precisar pagar por anúncio.
+
+## O que acontece sem um site
+
+- Seus concorrentes que têm site aparecem antes de você no Google
+- Clientes em dúvida entre você e um concorrente escolhem quem parece mais profissional online
+- Você depende 100% do boca a boca, que tem limite
+- Não há como mostrar portfólio, depoimentos ou informações detalhadas
+
+## Quanto custa não ter um site?
+
+Se você perde apenas 2 clientes por mês por falta de presença online, e cada cliente vale R$300 em média, são R$600 por mês — ou R$7.200 por ano.
+
+Um site profissional custa a partir de R$797 uma única vez. A conta é simples.
+
+## Conclusão
+
+Ter um site profissional não é luxo. É o mínimo para competir no mercado atual. E a boa notícia é que nunca foi tão acessível quanto agora.
+
+Se você ainda não tem um site, ou tem um que não representa bem o seu negócio, vale muito a pena investir nisso.`},
+  {id:'fixed-2',slug:'como-automatizar-atendimento-com-ia',title:'Como automatizar o atendimento do seu negócio com IA',cat:'Automação',author:'Eduardo Spínola',date:'10 Mar 2026',summary:'Saiba como usar inteligência artificial para responder clientes e aumentar vendas no piloto automático.',body:`Imagine que é domingo à noite e um cliente manda mensagem no WhatsApp perguntando sobre os seus serviços.
+
+Sem automação: a mensagem fica esperando até segunda de manhã. O cliente, sem resposta, vai procurar outro lugar.
+
+Com automação: em segundos, ele recebe uma resposta personalizada, com as informações que precisava, e já pode agendar um horário.
+
+## O que é automação com IA?
+
+Automação com IA é o uso de sistemas inteligentes para responder clientes, qualificar leads, agendar consultas e fazer follow-up de forma automática — sem você precisar estar presente.
+
+Diferente dos antigos chatbots com respostas engessadas, os sistemas modernos com IA conseguem entender perguntas naturais e dar respostas relevantes.
+
+## Como funciona na prática
+
+1. **Recepção automática**: o cliente manda mensagem, o sistema responde imediatamente apresentando a empresa
+2. **Qualificação**: o sistema pergunta o que o cliente precisa e coleta informações importantes
+3. **Agendamento**: integrado com sua agenda, oferece horários disponíveis e confirma automaticamente
+4. **Follow-up**: se o cliente não retornou, o sistema manda uma mensagem de acompanhamento no dia seguinte
+
+## Quem se beneficia
+
+- Clínicas e consultórios: agendamento 24h sem recepcionista
+- Salões e barbearias: confirmação de horários automática
+- Prestadores de serviço: qualificação de leads antes de falar com o cliente
+- Lojas: resposta instantânea sobre produtos, preços e disponibilidade
+
+## Quanto economiza
+
+Um sistema de automação substitui boa parte do trabalho de um atendente, sem custo de encargos, sem horário de trabalho e sem erros por cansaço.
+
+## Conclusão
+
+A automação com IA não é mais coisa de empresa grande. Hoje qualquer pequeno negócio pode ter um atendimento profissional e instantâneo — 24 horas por dia, 7 dias por semana.`},
+  {id:'fixed-3',slug:'trafego-pago-para-pequenas-empresas',title:'Tráfego pago para pequenas empresas: por onde começar',cat:'Tráfego',author:'Eduardo Spínola',date:'5 Mar 2026',summary:'Google Ads ou Meta Ads? Quanto investir? Um guia para quem nunca fez anúncios.',body:`Muitas pequenas empresas ainda acham que tráfego pago é coisa cara e complicada. A realidade é diferente.
+
+Com R$500 por mês, é possível gerar resultados reais — desde que a estratégia seja certa.
+
+## Google Ads vs. Meta Ads: qual escolher?
+
+**Google Ads** é ideal quando as pessoas já estão procurando o que você oferece. Exemplo: "clínica de fisioterapia em Brusque", "mecânico de carro em São Paulo". São buscas com intenção de compra.
+
+**Meta Ads** (Facebook e Instagram) funciona melhor para criar demanda — mostrar seu produto ou serviço para quem ainda não sabe que precisa. Funciona bem para e-commerce, serviços de beleza, moda e entretenimento.
+
+**Regra prática**: se seu cliente já pesquisa o serviço, comece pelo Google. Se você precisa "despertar" o interesse, Meta Ads.
+
+## Quanto investir
+
+O mínimo recomendado para ter dados suficientes para otimizar é R$300/mês por plataforma. Menos que isso, você não tem volume suficiente para aprender e melhorar.
+
+Uma boa estratégia inicial é R$500 a R$800/mês, dividido entre testes em diferentes públicos e anúncios.
+
+## O que não fazer
+
+- Impulsionar posts do Instagram sem estratégia (desperdiça dinheiro)
+- Criar campanhas e nunca monitorar
+- Não ter uma página de destino (landing page) otimizada
+- Tentar anunciar tudo para todos
+
+## O papel da gestão profissional
+
+Qualquer pessoa pode criar um anúncio. Mas criar um anúncio que gera resultado — com público certo, copy certa, lance certo e otimização contínua — é outra coisa.
+
+Uma gestão profissional pode reduzir o custo por lead em 50% ou mais em comparação com campanhas mal configuradas.
+
+## Conclusão
+
+Tráfego pago é o atalho mais rápido para trazer clientes novos. Mas precisa de estratégia, acompanhamento e paciência para colher os resultados.
+
+Se você nunca fez antes, vale muito começar com o apoio de um profissional.`}
+];
+
+const allPosts=[...fixedPosts,...posts];
+const post=allPosts.find(p=>p.slug===slug)||(slug?null:allPosts[0]);
+
+if(!post){
+  document.getElementById('not-found').style.display='block';
+} else {
+  document.getElementById('article-wrap').style.display='block';
+  document.title=post.title+' — Sipos Studio';
+  document.getElementById('pg-desc').content=post.summary;
+  document.getElementById('art-breadcrumb').textContent=post.title.substring(0,40)+(post.title.length>40?'...':'');
+  document.getElementById('art-cat').textContent=post.cat;
+  document.getElementById('art-title').textContent=post.title;
+  document.getElementById('art-date').textContent=post.date;
+  document.getElementById('art-author').textContent=post.author;
+
+  // Tempo de leitura
+  const words=post.body.split(/\s+/).length;
+  const mins=Math.max(1,Math.round(words/200));
+  document.getElementById('art-readtime').textContent=mins+' min de leitura';
+
+  // Imagem
+  const img=document.getElementById('art-img');
+  if(post.img){img.src=post.img;img.alt=post.title}
+  else{img.classList.add('hidden')}
+
+  // Renderizar body com markdown simples
+  function renderMd(text){
+    return text
+      .replace(/^## (.+)$/gm,'<h2>$1</h2>')
+      .replace(/^### (.+)$/gm,'<h3>$1</h3>')
+      .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+      .replace(/^- (.+)$/gm,'<li>$1</li>')
+      .replace(/(<li>.*<\/li>)/gs,'<ul>$1</ul>')
+      .replace(/\n\n/g,'</p><p>')
+      .replace(/^(?!<h[23]|<ul|<\/ul|<li)/gm,'')
+      .replace(/^(.+)$/gm,(line)=>{
+        if(line.startsWith('<'))return line;
+        return '<p>'+line+'</p>';
+      })
+      .replace(/<p><\/p>/g,'')
+      .replace(/<p>(<h[23]|<ul|<\/ul)/g,'$1')
+      .replace(/(<\/h[23]>|<\/ul>)<\/p>/g,'$1');
+  }
+  document.getElementById('art-body').innerHTML=renderMd(post.body);
+
+  // Relacionados
+  const related=allPosts.filter(p=>p.id!==post.id).slice(0,3);
+  document.getElementById('related-grid').innerHTML=related.map(p=>`
+    <div class="rel-card" onclick="location.href='/blog/${p.slug}'">
+      <div class="rel-thumb"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width=".5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <div class="rel-info"><div class="rel-cat">${p.cat}</div><div class="rel-title">${p.title}</div></div>
+    </div>
+  `).join('');
+}
+</script>
+</body>
+</html>
