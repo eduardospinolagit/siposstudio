@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/admin/blog", "destination": "/admin/blog/index.html" },
+    { "source": "/servicos/:slug", "destination": "/servicos/:slug/index.html" }
+  ]
+}
